@@ -1,0 +1,1671 @@
+{
+	"info": {
+		"_postman_id": "1f6b270a-9867-4a6b-8d54-bf7e7b1004f9",
+		"name": "ApiHunter",
+		"description": "Coleção de testes da API Hunter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21621623"
+	},
+	"item": [
+		{
+			"name": "Leads",
+			"item": [
+				{
+					"name": "Criar novo lead",
+					"item": [
+						{
+							"name": "POST - Criar Novo Lead",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.iterationData.get(\"email_lead\")\r",
+											"pm.iterationData.get(\"first_name_lead\")\r",
+											"pm.iterationData.get(\"last_name_lead\")\r",
+											"pm.iterationData.get(\"posistion_lead\")\r",
+											"pm.iterationData.get(\"company_lead\")\r",
+											"pm.iterationData.get(\"industry_lead\")"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"email@email.com\",\r\n    \"first_name\": \"Primeiro Nome\",\r\n    \"last_name\": \"Último Nome\",\r\n    \"position\": \"Cargo\",\r\n    \"company\": \"Empresa\",\r\n    \"company_industry\": \"Indústria\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}leads",
+									"host": [
+										"{{url_base}}leads"
+									]
+								},
+								"description": "POST - Teste de criação de novo Lead\n\n\\-Resultados esperados:\n\n- Status code: 200, 201 ou 202\n- String 'Created' no status code do response\n- Tempo de execução < 2 seg"
+							},
+							"response": [
+								{
+									"name": "POST - Criar Novo Lead",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"email@email.com\",\r\n    \"first_name\": \"Primeiro Nome\",\r\n    \"last_name\": \"Último Nome\",\r\n    \"position\": \"Cargo\",\r\n    \"company\": \"Empresa\",\r\n    \"company_industry\": \"Indústria\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://api.hunter.io/v2/leads",
+											"protocol": "https",
+											"host": [
+												"api",
+												"hunter",
+												"io"
+											],
+											"path": [
+												"v2",
+												"leads"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 02 Mar 2023 14:00:17 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "777"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "permissions-policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "access-control-allow-origin",
+											"value": "*"
+										},
+										{
+											"key": "access-control-allow-methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "access-control-allow-headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "location",
+											"value": "https://api.hunter.io/v2/leads/118572070"
+										},
+										{
+											"key": "x-user",
+											"value": "3729134"
+										},
+										{
+											"key": "etag",
+											"value": "W/\"1253dc905f4ec36fc89d433fefa376b0\""
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "x-request-id",
+											"value": "3a823d8f-727b-4b02-842b-89952032fca7"
+										},
+										{
+											"key": "x-runtime",
+											"value": "0.757029"
+										},
+										{
+											"key": "via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Server-Timing",
+											"value": "cf-q-config;dur=6.9999998686399e-06"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "7a1a2a3f2e91a69a-GRU"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 118572070,\n        \"email\": \"email@email.com\",\n        \"first_name\": \"Primeiro Nome\",\n        \"last_name\": \"Último Nome\",\n        \"position\": \"Cargo\",\n        \"company\": \"Empresa\",\n        \"company_industry\": \"Indústria\",\n        \"confidence_score\": null,\n        \"website\": null,\n        \"country_code\": null,\n        \"company_size\": null,\n        \"source\": null,\n        \"linkedin_url\": null,\n        \"phone_number\": null,\n        \"twitter\": null,\n        \"sync_status\": null,\n        \"notes\": null,\n        \"sending_status\": null,\n        \"last_activity_at\": null,\n        \"last_contacted_at\": null,\n        \"verification\": {\n            \"date\": null,\n            \"status\": null\n        },\n        \"leads_list\": {\n            \"id\": 4105539,\n            \"name\": \"Andreza's leads\",\n            \"leads_count\": 12\n        },\n        \"created_at\": \"2023-03-02 14:00:17 UTC\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"description": "Criar novo lead"
+				},
+				{
+					"name": "Recuperar todos leads cadastrados",
+					"item": [
+						{
+							"name": "GET - Todos Leads",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}leads",
+									"host": [
+										"{{url_base}}leads"
+									]
+								},
+								"description": "GET - Teste de criação de novo Lead\n\n\\-Resultados esperados:\n\n- Status code: 200\n- String 'OK' no status code do response\n- Tempo de execução < 2 seg\n    \n\nEndFragment"
+							},
+							"response": [
+								{
+									"name": "GET - Todos Leads",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://api.hunter.io/v2/leads",
+											"protocol": "https",
+											"host": [
+												"api",
+												"hunter",
+												"io"
+											],
+											"path": [
+												"v2",
+												"leads"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 03 Mar 2023 12:30:58 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "permissions-policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "access-control-allow-origin",
+											"value": "*"
+										},
+										{
+											"key": "access-control-allow-methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "access-control-allow-headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "x-user",
+											"value": "3729134"
+										},
+										{
+											"key": "etag",
+											"value": "W/\"607a5705c8e8907b75eb9bebf0478110\""
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "x-request-id",
+											"value": "af558a70-1176-4d96-b68b-2b21c886d153"
+										},
+										{
+											"key": "x-runtime",
+											"value": "0.126160"
+										},
+										{
+											"key": "via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Server-Timing",
+											"value": "cf-q-config;dur=5.9999993027304e-06"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "7a21e4cadc78a697-GRU"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"leads\": [\n            {\n                \"id\": 118572070,\n                \"email\": \"email@email.com\",\n                \"first_name\": \"Primeiro Nome\",\n                \"last_name\": \"Último Nome\",\n                \"position\": \"Cargo\",\n                \"company\": \"Empresa\",\n                \"company_industry\": \"Indústria\",\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"verification\": {\n                    \"date\": null,\n                    \"status\": null\n                },\n                \"leads_list\": {\n                    \"id\": 4105539,\n                    \"name\": \"Andreza's leads\",\n                    \"leads_count\": 13\n                },\n                \"created_at\": \"2023-03-02 14:00:17 UTC\"\n            },\n            {\n                \"id\": 118448563,\n                \"email\": \"andreza_edit5@andreza.com\",\n                \"first_name\": \"Andreza_edit5\",\n                \"last_name\": \"Silva_edit5\",\n                \"position\": \"Owner_edit5\",\n                \"company\": \"Globo_edit5\",\n                \"company_industry\": \"IT_edit5\",\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"verification\": {\n                    \"date\": null,\n                    \"status\": null\n                },\n                \"leads_list\": {\n                    \"id\": 4105539,\n                    \"name\": \"Andreza's leads\",\n                    \"leads_count\": 13\n                },\n                \"created_at\": \"2023-03-01 13:43:49 UTC\"\n            },\n            {\n                \"id\": 118448536,\n                \"email\": \"andreza_edit4@andreza.com\",\n                \"first_name\": \"Andreza_edit4\",\n                \"last_name\": \"Silva_edit4\",\n                \"position\": \"Owner_edit4\",\n                \"company\": \"Globo_edit4\",\n                \"company_industry\": \"IT_edit4\",\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"verification\": {\n                    \"date\": null,\n                    \"status\": null\n                },\n                \"leads_list\": {\n                    \"id\": 4105539,\n                    \"name\": \"Andreza's leads\",\n                    \"leads_count\": 13\n                },\n                \"created_at\": \"2023-03-01 13:43:44 UTC\"\n            },\n            {\n                \"id\": 118448515,\n                \"email\": \"andreza_edit3@andreza.com\",\n                \"first_name\": \"Andreza_edit3\",\n                \"last_name\": \"Silva_edit3\",\n                \"position\": \"Owner_edit3\",\n                \"company\": \"Globo_edit3\",\n                \"company_industry\": \"IT_edit3\",\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"verification\": {\n                    \"date\": null,\n                    \"status\": null\n                },\n                \"leads_list\": {\n                    \"id\": 4105539,\n                    \"name\": \"Andreza's leads\",\n                    \"leads_count\": 13\n                },\n                \"created_at\": \"2023-03-01 13:43:39 UTC\"\n            },\n            {\n                \"id\": 118448491,\n                \"email\": \"andreza_edit2@andreza.com\",\n                \"first_name\": \"Andreza_edit2\",\n                \"last_name\": \"Silva_edit2\",\n                \"position\": \"Owner_edit2\",\n                \"company\": \"Globo_edit2\",\n                \"company_industry\": \"IT_edit2\",\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"verification\": {\n                    \"date\": null,\n                    \"status\": null\n                },\n                \"leads_list\": {\n                    \"id\": 4105539,\n                    \"name\": \"Andreza's leads\",\n                    \"leads_count\": 13\n                },\n                \"created_at\": \"2023-03-01 13:43:33 UTC\"\n            },\n            {\n                \"id\": 118448474,\n                \"email\": \"andreza_edit1@andreza.com\",\n                \"first_name\": \"Andreza_edit1\",\n                \"last_name\": \"Silva_edit1\",\n                \"position\": \"Owner_edit1\",\n                \"company\": \"Globo_edit1\",\n                \"company_industry\": \"IT_edit1\",\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"verification\": {\n                    \"date\": null,\n                    \"status\": null\n                },\n                \"leads_list\": {\n                    \"id\": 4105539,\n                    \"name\": \"Andreza's leads\",\n                    \"leads_count\": 13\n                },\n                \"created_at\": \"2023-03-01 13:43:26 UTC\"\n            },\n            {\n                \"id\": 118448463,\n                \"email\": \"andreza_edit@andreza.com\",\n                \"first_name\": \"Andreza_edit\",\n                \"last_name\": \"Silva_edit\",\n                \"position\": \"Owner_edit\",\n                \"company\": \"Globo_edit\",\n                \"company_industry\": \"IT_edit\",\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"verification\": {\n                    \"date\": null,\n                    \"status\": null\n                },\n                \"leads_list\": {\n                    \"id\": 4105539,\n                    \"name\": \"Andreza's leads\",\n                    \"leads_count\": 13\n                },\n                \"created_at\": \"2023-03-01 13:43:19 UTC\"\n            },\n            {\n                \"id\": 118448368,\n                \"email\": \"andreza5@andreza.com\",\n                \"first_name\": \"Andreza5\",\n                \"last_name\": \"Silva5\",\n                \"position\": \"Owner5\",\n                \"company\": \"Globo5\",\n                \"company_industry\": \"IT5\",\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"verification\": {\n                    \"date\": null,\n                    \"status\": null\n                },\n                \"leads_list\": {\n                    \"id\": 4105539,\n                    \"name\": \"Andreza's leads\",\n                    \"leads_count\": 13\n                },\n                \"created_at\": \"2023-03-01 13:42:25 UTC\"\n            },\n            {\n                \"id\": 118448358,\n                \"email\": \"andreza4@andreza.com\",\n                \"first_name\": \"Andreza4\",\n                \"last_name\": \"Silva4\",\n                \"position\": \"Owner4\",\n                \"company\": \"Globo4\",\n                \"company_industry\": \"IT4\",\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"verification\": {\n                    \"date\": null,\n                    \"status\": null\n                },\n                \"leads_list\": {\n                    \"id\": 4105539,\n                    \"name\": \"Andreza's leads\",\n                    \"leads_count\": 13\n                },\n                \"created_at\": \"2023-03-01 13:42:20 UTC\"\n            },\n            {\n                \"id\": 118448346,\n                \"email\": \"andreza3@andreza.com\",\n                \"first_name\": \"Andreza3\",\n                \"last_name\": \"Silva3\",\n                \"position\": \"Owner3\",\n                \"company\": \"Globo3\",\n                \"company_industry\": \"IT3\",\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"verification\": {\n                    \"date\": null,\n                    \"status\": null\n                },\n                \"leads_list\": {\n                    \"id\": 4105539,\n                    \"name\": \"Andreza's leads\",\n                    \"leads_count\": 13\n                },\n                \"created_at\": \"2023-03-01 13:42:15 UTC\"\n            },\n            {\n                \"id\": 118448331,\n                \"email\": \"andreza2@andreza.com\",\n                \"first_name\": \"Andreza2\",\n                \"last_name\": \"Silva2\",\n                \"position\": \"Owner2\",\n                \"company\": \"Globo2\",\n                \"company_industry\": \"IT2\",\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"verification\": {\n                    \"date\": null,\n                    \"status\": null\n                },\n                \"leads_list\": {\n                    \"id\": 4105539,\n                    \"name\": \"Andreza's leads\",\n                    \"leads_count\": 13\n                },\n                \"created_at\": \"2023-03-01 13:42:10 UTC\"\n            },\n            {\n                \"id\": 118448314,\n                \"email\": \"andreza1@andreza.com\",\n                \"first_name\": \"Andreza1\",\n                \"last_name\": \"Silva1\",\n                \"position\": \"Owner1\",\n                \"company\": \"Globo1\",\n                \"company_industry\": \"IT1\",\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"verification\": {\n                    \"date\": null,\n                    \"status\": null\n                },\n                \"leads_list\": {\n                    \"id\": 4105539,\n                    \"name\": \"Andreza's leads\",\n                    \"leads_count\": 13\n                },\n                \"created_at\": \"2023-03-01 13:42:05 UTC\"\n            },\n            {\n                \"id\": 118448309,\n                \"email\": \"andreza@andreza.com\",\n                \"first_name\": \"Andreza\",\n                \"last_name\": \"Silva\",\n                \"position\": \"Owner\",\n                \"company\": \"Globo\",\n                \"company_industry\": \"IT\",\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"verification\": {\n                    \"date\": null,\n                    \"status\": null\n                },\n                \"leads_list\": {\n                    \"id\": 4105539,\n                    \"name\": \"Andreza's leads\",\n                    \"leads_count\": 13\n                },\n                \"created_at\": \"2023-03-01 13:42:00 UTC\"\n            }\n        ]\n    },\n    \"meta\": {\n        \"count\": 13,\n        \"total\": 13,\n        \"params\": {\n            \"limit\": 20,\n            \"offset\": 0\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "GET - Busca Lead Específico",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}leads/{{id_lead}}",
+									"host": [
+										"{{url_base}}leads"
+									],
+									"path": [
+										"{{id_lead}}"
+									]
+								},
+								"description": "GET - Teste de criação de novo Lead\n\n\\-Resultados esperados:\n\n- Status code: 200\n- String 'OK' no status code do response\n- Tempo de execução < 2 seg\n    \n\nEndFragment"
+							},
+							"response": [
+								{
+									"name": "GET - Busca Lead Específico",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://api.hunter.io/v2/leads/",
+											"protocol": "https",
+											"host": [
+												"api",
+												"hunter",
+												"io"
+											],
+											"path": [
+												"v2",
+												"leads",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 03 Mar 2023 12:39:17 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "permissions-policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "access-control-allow-origin",
+											"value": "*"
+										},
+										{
+											"key": "access-control-allow-methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "access-control-allow-headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "x-user",
+											"value": "3729134"
+										},
+										{
+											"key": "etag",
+											"value": "W/\"c277177247b824bc5d00715345795b2b\""
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "x-request-id",
+											"value": "b0d369d4-129d-460a-8c2a-0af9ac517b09"
+										},
+										{
+											"key": "x-runtime",
+											"value": "0.048682"
+										},
+										{
+											"key": "via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Server-Timing",
+											"value": "cf-q-config;dur=4.9999998736894e-06"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "7a21f0fa9977a697-GRU"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 118692946,\n        \"email\": \"email@email.com\",\n        \"first_name\": \"Primeiro Nome\",\n        \"last_name\": \"Último Nome\",\n        \"position\": \"Cargo\",\n        \"company\": \"Empresa\",\n        \"company_industry\": \"Indústria\",\n        \"confidence_score\": null,\n        \"website\": null,\n        \"country_code\": null,\n        \"company_size\": null,\n        \"source\": null,\n        \"linkedin_url\": null,\n        \"phone_number\": null,\n        \"twitter\": null,\n        \"sync_status\": null,\n        \"notes\": null,\n        \"sending_status\": null,\n        \"last_activity_at\": null,\n        \"last_contacted_at\": null,\n        \"verification\": {\n            \"date\": null,\n            \"status\": null\n        },\n        \"leads_list\": {\n            \"id\": 4105539,\n            \"name\": \"Andreza's leads\",\n            \"leads_count\": 13\n        },\n        \"created_at\": \"2023-03-03 12:33:47 UTC\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"description": "Recuperar todos leads cadastrados"
+				},
+				{
+					"name": "Editar lead",
+					"item": [
+						{
+							"name": "PUT - Editar Lead",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.iterationData.get(\"email_lead_edit\")\r",
+											"pm.iterationData.get(\"first_name_lead_edit\")\r",
+											"pm.iterationData.get(\"last_name_lead_edit\")\r",
+											"pm.iterationData.get(\"posistion_lead_edit\")\r",
+											"pm.iterationData.get(\"company_lead_edit\")\r",
+											"pm.iterationData.get(\"industry_lead_edit\")"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"andreza_editado@andreza.com\",\r\n    \"first_name\": \"Andreza_editado\",\r\n    \"last_name\": \"Silva_editado\",\r\n    \"position\": \"CEO_editado\",\r\n    \"company\": \"IT_editado\",\r\n    \"company_industry\": \"IT Industry_editado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}leads/{{id_lead}}",
+									"host": [
+										"{{url_base}}leads"
+									],
+									"path": [
+										"{{id_lead}}"
+									]
+								},
+								"description": "PUT - Enviar requisição PUT assincrona para alterar/editar Lead\n\n\\-Resultados esperados:\n\n- Status code: 204\n- String 'No Content' no status code do response\n    \n\nEndFragment"
+							},
+							"response": [
+								{
+									"name": "PUT - Editar Lead",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"andreza_editado@andreza.com\",\r\n    \"first_name\": \"Andreza_editado\",\r\n    \"last_name\": \"Silva_editado\",\r\n    \"position\": \"CEO_editado\",\r\n    \"company\": \"IT_editado\",\r\n    \"company_industry\": \"IT Industry_editado\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://api.hunter.io/v2/leads/",
+											"protocol": "https",
+											"host": [
+												"api",
+												"hunter",
+												"io"
+											],
+											"path": [
+												"v2",
+												"leads",
+												""
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 03 Mar 2023 12:46:22 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "permissions-policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "access-control-allow-origin",
+											"value": "*"
+										},
+										{
+											"key": "access-control-allow-methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "access-control-allow-headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "x-user",
+											"value": "3729134"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "x-request-id",
+											"value": "30a6a03e-af53-46b7-9783-64294469fd83"
+										},
+										{
+											"key": "x-runtime",
+											"value": "0.441910"
+										},
+										{
+											"key": "via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Server-Timing",
+											"value": "cf-q-config;dur=7.0000005507609e-06"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "7a21fb5c98d9a697-GRU"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					],
+					"description": "Editar lead"
+				},
+				{
+					"name": "Excluir lead",
+					"item": [
+						{
+							"name": "DELETE - Excluir Lead",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}leads/{{id_lead}}",
+									"host": [
+										"{{url_base}}leads"
+									],
+									"path": [
+										"{{id_lead}}"
+									]
+								},
+								"description": "Delete - Teste de deletar Lead\n\n\\-Resultados esperados:\n\n- Status code: 204\n- String 'No Content' no status code do response\n    \n\nEndFragment"
+							},
+							"response": [
+								{
+									"name": "DELETE - Excluir Lead",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "https://api.hunter.io/v2/leads/",
+											"protocol": "https",
+											"host": [
+												"api",
+												"hunter",
+												"io"
+											],
+											"path": [
+												"v2",
+												"leads",
+												""
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 03 Mar 2023 12:49:19 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "permissions-policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "access-control-allow-origin",
+											"value": "*"
+										},
+										{
+											"key": "access-control-allow-methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "access-control-allow-headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "x-user",
+											"value": "3729134"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "x-request-id",
+											"value": "d4893e72-44e9-471d-8a73-aefe8d5e7fc3"
+										},
+										{
+											"key": "x-runtime",
+											"value": "0.253064"
+										},
+										{
+											"key": "via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Server-Timing",
+											"value": "cf-q-config;dur=4.9999998736894e-06"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "7a21ffae782da697-GRU"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					],
+					"description": "Excluir lead"
+				}
+			],
+			"description": "Pasta para suites de testes de leads.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Leads Lists",
+			"item": [
+				{
+					"name": "Criar nova lista de lead",
+					"item": [
+						{
+							"name": "POST - Criar Lead List",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.iterationData.get(\"lead_list_name\")"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Lista_Leads\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}leads_lists",
+									"host": [
+										"{{url_base}}leads_lists"
+									]
+								},
+								"description": "POST - Teste de criação de novo Lead Lists\n\n\\-Resultados esperados:\n\n- Status code: 200, 201 ou 202\n- String 'Created' no status code do response\n- Tempo de execução < 2 seg\n    \n\nEndFragment"
+							},
+							"response": [
+								{
+									"name": "POST - Criar Lead List",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Lista_Leads\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://api.hunter.io/v2/leads_lists",
+											"protocol": "https",
+											"host": [
+												"api",
+												"hunter",
+												"io"
+											],
+											"path": [
+												"v2",
+												"leads_lists"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 03 Mar 2023 12:52:46 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "131"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "permissions-policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "access-control-allow-origin",
+											"value": "*"
+										},
+										{
+											"key": "access-control-allow-methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "access-control-allow-headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "location",
+											"value": "https://api.hunter.io/v2/leads_lists/4123802"
+										},
+										{
+											"key": "x-user",
+											"value": "3729134"
+										},
+										{
+											"key": "etag",
+											"value": "W/\"5d28a07de0c304a9756f26b525be6fe4\""
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "x-request-id",
+											"value": "6374e877-c5c0-4005-8104-123b0de02d6c"
+										},
+										{
+											"key": "x-runtime",
+											"value": "0.067057"
+										},
+										{
+											"key": "via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Server-Timing",
+											"value": "cf-q-config;dur=6.0000002122251e-06"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "7a2204b9abcea697-GRU"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 4123802,\n        \"name\": \"Lista_Leads\",\n        \"leads_count\": 0,\n        \"created_at\": \"2023-03-03 12:52:45 UTC\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"description": "Criar nova lista de lead"
+				},
+				{
+					"name": "Recuperar todas listas de leads cadastradas",
+					"item": [
+						{
+							"name": "GET - Todos Lead List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}leads_lists",
+									"host": [
+										"{{url_base}}leads_lists"
+									]
+								},
+								"description": "GET - Teste de criação de novo Lead Lists\n\n\\-Resultados esperados:\n\n- Status code: 200\n- String 'OK' no status code do response\n- Tempo de execução < 2 seg\n    \n\nEndFragment"
+							},
+							"response": [
+								{
+									"name": "GET - Todos Lead List",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url_base}}leads_lists",
+											"host": [
+												"{{url_base}}leads_lists"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 03 Mar 2023 12:53:51 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "permissions-policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "access-control-allow-origin",
+											"value": "*"
+										},
+										{
+											"key": "access-control-allow-methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "access-control-allow-headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "x-user",
+											"value": "3729134"
+										},
+										{
+											"key": "etag",
+											"value": "W/\"ffb332eca77bff496b513036be8f7abc\""
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "x-request-id",
+											"value": "78043a13-8ca9-48eb-8cea-bb9171698b9f"
+										},
+										{
+											"key": "x-runtime",
+											"value": "0.068352"
+										},
+										{
+											"key": "via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Server-Timing",
+											"value": "cf-q-config;dur=6.0000002122251e-06"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "7a2206560b8aa697-GRU"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"leads_lists\": [\n            {\n                \"id\": 4123802,\n                \"name\": \"Lista_Leads\",\n                \"leads_count\": 0,\n                \"created_at\": \"2023-03-03 12:52:45 UTC\"\n            },\n            {\n                \"id\": 4121106,\n                \"name\": \"Lista_Andreza\",\n                \"leads_count\": 0,\n                \"created_at\": \"2023-03-02 12:58:09 UTC\"\n            },\n            {\n                \"id\": 4105539,\n                \"name\": \"Andreza's leads\",\n                \"leads_count\": 12,\n                \"created_at\": \"2023-02-23 20:57:15 UTC\"\n            }\n        ]\n    },\n    \"meta\": {\n        \"total\": 3,\n        \"params\": {\n            \"limit\": 20,\n            \"offset\": 0\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "GET - Recuperar Lead List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}leads_lists/{{id_lead_list}}",
+									"host": [
+										"{{url_base}}leads_lists"
+									],
+									"path": [
+										"{{id_lead_list}}"
+									]
+								},
+								"description": "GET - Teste de criação de novo Lead Lists\n\n\\-Resultados esperados:\n\n- Status code: 200\n- String 'OK' no status code do response\n- Tempo de execução < 2 seg\n    \n\nEndFragment"
+							},
+							"response": [
+								{
+									"name": "GET - Recuperar Lead List",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url_base}}leads_lists/{{id_lead_list}}",
+											"host": [
+												"{{url_base}}leads_lists"
+											],
+											"path": [
+												"{{id_lead_list}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 03 Mar 2023 13:01:34 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "permissions-policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "access-control-allow-origin",
+											"value": "*"
+										},
+										{
+											"key": "access-control-allow-methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "access-control-allow-headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "x-user",
+											"value": "3729134"
+										},
+										{
+											"key": "etag",
+											"value": "W/\"feb59bc6ce2a3f180d244560b7f2d105\""
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "x-request-id",
+											"value": "bc296e03-b7ea-4112-a850-f5e1d678a19a"
+										},
+										{
+											"key": "x-runtime",
+											"value": "0.179675"
+										},
+										{
+											"key": "via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Server-Timing",
+											"value": "cf-q-config;dur=6.9999998686399e-06"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "7a22119ebd89a69d-GRU"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 4123802,\n        \"name\": \"Lista_Leads\",\n        \"leads_count\": 0,\n        \"created_at\": \"2023-03-03 12:52:45 UTC\",\n        \"leads\": []\n    },\n    \"meta\": {\n        \"params\": {\n            \"limit\": 20,\n            \"offset\": 0,\n            \"leads_list_id\": 4123802\n        }\n    }\n}"
+								}
+							]
+						}
+					],
+					"description": "Recuperar todas listas de leads cadastradas"
+				},
+				{
+					"name": "Editar lista de lead",
+					"item": [
+						{
+							"name": "PUT - Editar Lead List",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.iterationData.get(\"lead_list_name_edit\")"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Lista_Lead_editado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}leads_lists/{{id_lead_list}}",
+									"host": [
+										"{{url_base}}leads_lists"
+									],
+									"path": [
+										"{{id_lead_list}}"
+									]
+								},
+								"description": "PUT - Enviar requisição PUT assincrona para alterar/editar Lead Lists\n\n\\-Resultados esperados:\n\n- Status code: 204\n- String 'No Content' no status code do response\n    \n\nEndFragment"
+							},
+							"response": [
+								{
+									"name": "PUT - Editar Lead List",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Lista_Lead_editado\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url_base}}leads_lists/{{id_lead_list}}",
+											"host": [
+												"{{url_base}}leads_lists"
+											],
+											"path": [
+												"{{id_lead_list}}"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 03 Mar 2023 13:02:48 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "permissions-policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "access-control-allow-origin",
+											"value": "*"
+										},
+										{
+											"key": "access-control-allow-methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "access-control-allow-headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "x-user",
+											"value": "3729134"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "x-request-id",
+											"value": "73c5aaec-3241-484f-a995-627477c990ee"
+										},
+										{
+											"key": "x-runtime",
+											"value": "0.072940"
+										},
+										{
+											"key": "via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Server-Timing",
+											"value": "cf-q-config;dur=5.9999999848515e-06"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "7a22136e3fd4a69d-GRU"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					],
+					"description": "Editar lista de lead"
+				},
+				{
+					"name": "Excluir lista de lead",
+					"item": [
+						{
+							"name": "PUT - Excluir Lead List",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}leads_lists/{{id_lead_list}}",
+									"host": [
+										"{{url_base}}leads_lists"
+									],
+									"path": [
+										"{{id_lead_list}}"
+									]
+								},
+								"description": "Delete - Teste de deletar Lead Lists\n\n\\-Resultados esperados:\n\n- Status code: 204\n- String 'No Content' no status code do response\n    \n\nEndFragment"
+							},
+							"response": [
+								{
+									"name": "PUT - Excluir Lead List",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url_base}}leads_lists/{{id_lead_list}}",
+											"host": [
+												"{{url_base}}leads_lists"
+											],
+											"path": [
+												"{{id_lead_list}}"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 03 Mar 2023 13:03:21 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "permissions-policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "access-control-allow-origin",
+											"value": "*"
+										},
+										{
+											"key": "access-control-allow-methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "access-control-allow-headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "x-user",
+											"value": "3729134"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "x-request-id",
+											"value": "afc3ac00-dedf-4da8-b07c-65d39d9b268b"
+										},
+										{
+											"key": "x-runtime",
+											"value": "0.079595"
+										},
+										{
+											"key": "via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Server-Timing",
+											"value": "cf-q-config;dur=7.9999999798019e-06"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "7a22143e1d56a69d-GRU"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					],
+					"description": "Excluir lista de lead"
+				}
+			],
+			"description": "Pasta de suites de testes de leads lists"
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "in",
+				"value": "query",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "b501aa7207bddd4457e7d41b42ea9011ba883d0b",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "api_key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"/*Testes para requisição GET",
+					"Status Code 200",
+					"String OK no response code",
+					"*/",
+					"",
+					"if(pm.request.method =='GET'){",
+					"",
+					"    pm.test(\"Status code is 200\", function () {",
+					"        pm.response.to.have.status(200);",
+					"    });",
+					"",
+					"",
+					"    pm.test(\"Status code name has string\", function () {",
+					"        pm.response.to.have.status(\"OK\");",
+					"    });",
+					"}",
+					"",
+					"/*Testes para requisição GET e POST",
+					"Executado em menos de 2seg",
+					"*/",
+					"",
+					"if(pm.request.method =='GET' || pm.request.method =='POST'){",
+					"",
+					"    pm.test(\"Response time is less than 4000ms\", function () {",
+					"        pm.expect(pm.response.responseTime).to.be.below(4000);",
+					"    });",
+					"}",
+					"",
+					"/*Testes para requisição POST",
+					"Sucesso nas requisições de POST: 200,201,202",
+					"String 'Created' no response code",
+					"*/",
+					"",
+					"if(pm.request.method =='POST'){",
+					"",
+					"    pm.test(\"Successful POST request\", function () {",
+					"        pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);",
+					"    });",
+					"",
+					"    pm.test(\"Status code name has string\", function () {",
+					"        pm.response.to.have.status(\"Created\");",
+					"    });",
+					"    ",
+					"}",
+					"",
+					"if(pm.info.requestName=='POST - Criar Novo Lead'){",
+					"        pm.environment.set(\"id_lead\", pm.response.json().data.id);",
+					"}",
+					"    ",
+					"if(pm.info.requestName=='POST - Criar Lead List'){",
+					"        pm.environment.set(\"id_lead_list\", pm.response.json().data.list_id);",
+					"}",
+					"",
+					"/*Testes para requisição DELETE e PUT",
+					"Responde Code 204",
+					"String 'No Content' no response code*/",
+					"",
+					"if(pm.request.method == 'DELETE' || pm.request.method == 'PUT') {",
+					"",
+					"    pm.test(\"Status code name has string\", function () {",
+					"        pm.response.to.have.status(\"No Content\");",
+					"    });",
+					"",
+					"    pm.test(\"Status code is 204\", function () {",
+					"        pm.response.to.have.status(204);",
+					"    });",
+					"}",
+					"",
+					""
+				]
+			}
+		}
+	]
+}
